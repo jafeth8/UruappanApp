@@ -118,8 +118,12 @@ class UserController extends Controller
         $imgfrm = $imagen->implode('nombre', ', ');
         //dd($imgfrm);
         //Storage::delete($imgfrm);
+        
         $image_path = public_path()."/img/galeria/$imgfrm";
-        unlink($image_path);
+        if (@getimagesize($image_path)) {
+              unlink($image_path);
+            }
+        
 
         Img_user::destroy($id);
 

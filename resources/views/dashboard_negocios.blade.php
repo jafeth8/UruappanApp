@@ -72,7 +72,10 @@
           <div class="form-group">
             <label for="img" class="negrita col-sm-3 control-label">Selecciona una imagen:</label>                         
             <div class="col-sm-9">
-            <input name="img[]" type="file" id="img" multiple="multiple">
+              <input name="img[]" type="file" id="img" multiple="multiple">
+            </div>
+            <div class="col-sm-12">
+            
             <br>
             <br>
             @if ( !empty ( $users->imagenes_galeria) )
