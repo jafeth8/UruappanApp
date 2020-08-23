@@ -34,4 +34,8 @@ class HomeController extends Controller
         $imagenes_galeria = User::find($id)->imagenesUsers;
         return view('dashboard_negocios',['users'=>User::find($id),'imagenes_galeria'=>$imagenes_galeria]);
     }
+    
+    public function showUsers(){
+        return view('usuarios');
+    }
 }
