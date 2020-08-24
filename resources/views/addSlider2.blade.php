@@ -1,5 +1,5 @@
 @extends('plantilla_admin')
-@section('estilos_para_sliders')
+@section('estilos_css')
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 @endsection
 
@@ -14,7 +14,7 @@
                     <div class="form-group">
                         <label for="imagen" class="col-sm-1 control-label">Imagen</label>
                         <div class="col-sm-10">
-                          <input type="file" id="imagen" name="imagen">
+                          <input type="file" id="imagen" name="imagen" required>
                         </div>
                       </div>
     

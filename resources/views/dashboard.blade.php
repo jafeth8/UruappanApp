@@ -1,6 +1,7 @@
 @extends('plantilla_admin')
 
-@section('estilos_para_sliders')
+@section('estilos_css')
+{{-- estilos para sliders --}}
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 @endsection
 

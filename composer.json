@@ -15,7 +15,8 @@
         "laravel-frontend-presets/material-dashboard": "^1.1",
         "laravel/framework": "^7.22.2",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.1"
+        "laravel/ui": "^2.1",
+        "yajra/laravel-datatables-oracle": "^9.10"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

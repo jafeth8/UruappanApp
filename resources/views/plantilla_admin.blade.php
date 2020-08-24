@@ -8,10 +8,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>AdminLTE 3</title>
+    <title>Admin Uruappan</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <script src="dist/js/adminlte.js"></script>
 
@@ -26,7 +26,7 @@
     <link href="{{ asset('dist/css/adminlte.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    @yield('estilos_para_sliders')
+    @yield('estilos_css')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">

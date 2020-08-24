@@ -68,6 +68,7 @@ Route::post('/crearSlider','SliderController@create')->name('crearSlider')->midd
 Route::get('/editarSlider{slider}','SliderController@showEdit')->name('sliderEdit')->middleware('auth','role:admin');
 Route::patch('/updateSlider{slider}','SliderController@editSlider')->name('sliderUpdate')->middleware('auth','role:admin');
 Route::get('/usuarios','HomeController@showUsers')->name('mostrarUsuarios')->middleware('auth','role:admin');
+Route::get('dataTableUSer', 'UserController@dataTable')->name('dataTableUser');
 //----------------------------------------------------------------------------------------
 Route::get('/home_negocios', 'HomeController@indexNegocios')->name('homeNegocios')->middleware('auth');
 Route::get('/usuarios/{users}/editar','UserController@edit')->name('Editar_Usuarios');

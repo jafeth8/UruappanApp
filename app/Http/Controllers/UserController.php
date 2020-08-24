@@ -23,6 +23,7 @@ use Illuminate\Support\Str;
 use File;
 use Illuminate\Support\Facades\DB as FacadesDB;
 use SebastianBergmann\Environment\Console;
+use Yajra\DataTables\DataTables;
 
 /*----------------------------- */
 class UserController extends Controller
@@ -37,6 +38,31 @@ class UserController extends Controller
     {
         return view('users.index', ['users' => $model->paginate(15)]);
     }
+
+
+    public function dataTable()
+    {
+        return DataTables::of(User::select('id', 'name', 'email', 'created_at')->where('role','customer'))
+        ->editColumn('created_at', function(User $user){
+            return $user->created_at->diffForHumans();
+        })
+        // ->addColumn('delete', '<form action="{{route(\'user.destroy\', $id)}}" method="POST">
+        //                     <input type="hidden" name="_method" value="DELETE">
+        //                     <input type="submit" name="submit" value="'.('Eliminar').'" class="btn btn-danger btn-sm"
+        //                     onClick="return confirm(\'¿Seguro?\')">
+        //                     {{csrf_field()}}
+        //                     </form>')
+        // ->addColumn('show', '<a href="{{route(\'user.show\', $id)}}" class="btn btn-info btn-sm">' .('Ver'). '</a>')
+        // ->addColumn('edit', '<a href="{{route(\'user.edit\', $id)}}" class="btn btn-warning btn-sm">' . ('Editar') . '</a>')
+
+        // ->addColumn('show', 'user.dataTable.show')
+        // ->addColumn('edit', 'user.dataTable.edit')
+        // ->addColumn('delete', 'user.dataTable.delete')
+        ->addColumn('btn', 'users.dataTable.btn')
+        ->rawColumns(['btn'])
+        ->toJson();
+    }
+
 
     public function update(User $users,Request $request){
         

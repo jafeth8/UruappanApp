@@ -36,6 +36,9 @@ class HomeController extends Controller
     }
     
     public function showUsers(){
-        return view('usuarios');
+        $user = User::all();
+        $names = $user->sortBy('name')->pluck('name')->unique();
+        $emails = $user->sortBy('email')->pluck('email')->unique();
+        return view('usuarios',compact('names', 'emails'));
     }
 }
