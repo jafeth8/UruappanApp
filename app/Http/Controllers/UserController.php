@@ -139,7 +139,7 @@ class UserController extends Controller
 
         //$bi = $bid;
 
-        // Elimino la imagen de la carpeta 'uploads'
+        // Elimino la imagen de la carpeta 'galeria'
         $imagen = Img_user::select('nombre')->where('id', '=', $id)->get();
         $imgfrm = $imagen->implode('nombre', ', ');
         //dd($imgfrm);
@@ -157,5 +157,58 @@ class UserController extends Controller
         Session::flash('message', 'Imagen Eliminada Satisfactoriamente !');
         //return Redirect::to('admin/bicicletas/actualizar/'.$bi.'');
         return redirect()->route('homeNegocios');
+    }
+
+    public function destroy($id)
+    {
+        $users = User::find($id);
+        $logo=$users->logo;
+        $imagen_portada=$users->imagen_portada;
+        //eilimno primero las imagenes de la tabla users
+        $dirImgLogo = public_path().'/img/logoNegocio/'.$logo;
+            
+        // Verificamos si la(s) imagen(es) existe(n) y procedemos a eliminar  
+        if (@getimagesize($dirImgLogo)) {
+            unlink($dirImgLogo);
+            } 
+
+        $dirImgPortada = public_path().'/img/portadaNegocio/'.$imagen_portada;
+    
+        // Verificamos si la(s) imagen(es) existe(n) y procedemos a eliminar  
+        if (@getimagesize($dirImgPortada)) {
+            unlink($dirImgPortada);
+        } 
+        
+        // Selecciono las imágenes a eliminar de la galeria (imagenes relacionadas entre la tabla users y img_users) 
+        $imagen = DB::table('img_users')->where('user_id', '=', $id)->get();        
+        $imgfrm = $imagen->implode('nombre', ',');  
+        //dd($imgfrm);        
+
+        // Creamos una lista con los nombres de las imágenes separadas por coma
+        $imagenes = explode(",", $imgfrm);
+        
+        // Recorremos la lista de imágenes separadas por coma
+        foreach($imagenes as $image){
+            
+            // Elimino la(s) imagen(es) de la carpeta 'uploads'
+            $dirimgs = public_path().'/img/galeria/'.$image;
+            
+            // Verificamos si la(s) imagen(es) existe(n) y procedemos a eliminar  
+            if (@getimagesize($dirimgs)) {
+                unlink($dirimgs);
+              }
+
+        }    
+
+        
+        // Borramos el registro de la tabla 'users'
+        User::destroy($id); 
+
+        // Borramos las imágenes de la tabla 'img_users' 
+        $users->imagenesUsers()->delete();
+
+        // Redireccionamos con mensaje 
+        return redirect()->route('mostrarUsuarios')->with('userDestroy','Negocio Eliminado correctamente!');
+        //return $id;
     }
 }

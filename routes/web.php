@@ -69,6 +69,7 @@ Route::get('/editarSlider{slider}','SliderController@showEdit')->name('sliderEdi
 Route::patch('/updateSlider{slider}','SliderController@editSlider')->name('sliderUpdate')->middleware('auth','role:admin');
 Route::get('/usuarios','HomeController@showUsers')->name('mostrarUsuarios')->middleware('auth','role:admin');
 Route::get('dataTableUSer', 'UserController@dataTable')->name('dataTableUser');
+Route::delete('aliminarUser/{id}', 'UserController@destroy')->name('eliminarUsuario');
 //----------------------------------------------------------------------------------------
 Route::get('/home_negocios', 'HomeController@indexNegocios')->name('homeNegocios')->middleware('auth');
 Route::get('/usuarios/{users}/editar','UserController@edit')->name('Editar_Usuarios');
