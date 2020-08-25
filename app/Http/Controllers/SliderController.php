@@ -31,7 +31,7 @@ class SliderController extends Controller
            'orden'=>$request->get('orden')  
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('slider_added','Un nuevo elemento ha sido creado.');
     }
 
     public function showEdit(Slider $slider){
@@ -47,7 +47,7 @@ class SliderController extends Controller
 
         }
         //$imagen=$file->getClientOriginalName();
-        
+        $noticia=$request->get('titulo');
          $slider->update([
            'titulo'=>$request->get('titulo'),
            'descripcion'=>$request->get('descripcion'),
@@ -58,7 +58,7 @@ class SliderController extends Controller
            'estado'=>$request->get('estado'),
            'orden'=>$request->get('orden')  
         ]);
-
-        return redirect()->route('home');
+        
+        return redirect()->route('home')->with("updated_slider","$noticia se ha actualizado ");
     }
 }

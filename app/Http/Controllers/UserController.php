@@ -131,7 +131,7 @@ class UserController extends Controller
      
         /*888888888888888888888888888888888888888888888888888888888888 */
         
-        return redirect()->route('homeNegocios',$users)->with('message','Guardado Satisfactoriamente !');
+        return redirect()->route('homeNegocios',$users)->with('mensaje','Datos actualizados correctamente !');
     }
 
     public function eliminarImagen($id,$uid){

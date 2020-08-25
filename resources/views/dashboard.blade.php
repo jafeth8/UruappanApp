@@ -12,7 +12,7 @@
         <!--*************************-->
           <div class="row">
             <div class="col-xs-12 text-right mb-5">
-              <a href="{{ route('agregarSlider') }}" class="btn btn-default" ><span class="glyphicon glyphicon-plus"></span> Agregar Slide</a>
+              <a href="{{ route('agregarSlider') }}" class="btn btn-default" ><span class="glyphicon glyphicon-plus"></span> Agregar noticia</a>
             </div>
             
           </div>
@@ -20,6 +20,20 @@
           <br>
           <!--<div class="outer_div"></div>-- Datos ajax Final -->
           <div class="outer_div">
+            @if(Session::has('slider_added'))
+              <div class="alert alert-success alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                {{ Session::get('slider_added') }}
+              </div>
+
+            @endif
+            @if(Session::has('updated_slider'))
+            <div class="alert alert-success alert-dismissible fade in" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+              {{ Session::get('updated_slider') }}
+            </div>
+
+          @endif
             <div class="row">
               @forelse ($sliders as $slider)
                 

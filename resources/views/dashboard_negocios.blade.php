@@ -5,6 +5,14 @@
 @section('content')
 <div class="row" style="margin-top: 1vh;">
     <div class="col-md-12">
+      @if(Session::has('mensaje'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>OK! </strong> {{ Session::get('mensaje') }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @endif
       <h3 ><span class="glyphicon glyphicon-edit"></span> Editar datos del negocio</h3>
       <form class="form-horizontal" id="editar_negocio" method="POST" action="{{ route('updateUsersData',$users) }}" enctype="multipart/form-data" autocomplete="off">
          @csrf @method('PUT')
@@ -74,7 +82,7 @@
             <div class="col-sm-9">
               <input name="img[]" type="file" id="img" multiple="multiple">
             </div>
-            <div class="col-sm-12">
+            <div>
             
             <br>
             <br>
