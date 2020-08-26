@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->text('facebook_url')->nullable();
             $table->string('logo')->nullable();
             $table->string('imagen_portada')->nullable();
-            $table->integer('imagenes_galeria')->unsigned()->nullable();//este campo solo es de referencia para determinar si se han agregado la galeria de imagenes  
+              
             //$table->string('url');
             /*-------------------------------------- */
             $table->string('email')->unique();

@@ -70,13 +70,18 @@ class UserController extends Controller
         if($request->hasFile('logo')){
             $file= $request->logo;
             $file->move(public_path() . '/img/logoNegocio', $file->getClientOriginalName());
+            $users->update([
+                'logo'=>$file->getClientOriginalName()
+            ]);
 
         }
 
         if(request()->hasFile('imagen_portada')){
             $file2= request()->imagen_portada;
             $file2->move(public_path() . '/img/portadaNegocio', $file2->getClientOriginalName());
-
+            $users->update([
+                'imagen_portada'=>$file2->getClientOriginalName()
+            ]);
         }
         $users->update([
             'name'=>request('nombreNegocio'),
@@ -85,8 +90,7 @@ class UserController extends Controller
             'telefono'=>request('telefono'),
             'categoria'=>request('categoria'),
             'facebook_url'=>request('facebook_url'),
-            'logo'=>$file->getClientOriginalName(),
-            'imagen_portada'=>$file2->getClientOriginalName(),
+            
             'imagenes_galeria' => date('dmyHi'),
         ]);
  
@@ -154,9 +158,9 @@ class UserController extends Controller
         Img_user::destroy($id);
 
         // Redireccionamos con mensaje 
-        Session::flash('message', 'Imagen Eliminada Satisfactoriamente !');
+        
         //return Redirect::to('admin/bicicletas/actualizar/'.$bi.'');
-        return redirect()->route('homeNegocios');
+        return redirect()->route('homeNegocios')->with('message','Imagen Eliminada Satisfactoriamente !');
     }
 
     public function destroy($id)

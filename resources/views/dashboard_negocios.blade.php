@@ -67,13 +67,23 @@
           <div class="form-group">
             <label for="logo"class="col-sm-3 control-label">Logo del negocio</label>
             <div class="col-sm-9">
-              <input type="file" class="form-control-file" id="logo" name="logo" required>
+              <input type="file" class="form-control-file" id="logo" name="logo" {{ empty($users->logo) ? "required" : "" }}>
+            </div>
+            <div class="col-sm-9">
+              @if (empty($users->logo)==false)
+               <img src="../../../img/logoNegocio/{{ $users->logo }}" width="200" class="img-fluid"> 
+              @endif
             </div>
           </div>
           <div class="form-group">
             <label for="imagen_portada"class="col-sm-3 control-label">Imagen de portada</label>
             <div class="col-sm-9">
-              <input type="file" class="form-control-file" id="logo" name="imagen_portada" required>
+              <input type="file" class="form-control-file" id="logo" name="imagen_portada" {{ empty($users->imagen_portada) ? "required" : "" }}>
+            </div>
+            <div class="col-sm-9">
+              @if (empty($users->imagen_portada)==false)
+               <img src="../../../img/logoNegocio/{{ $users->imagen_portada }}" width="200" class="img-fluid"> 
+              @endif
             </div>
           </div>
           <!--*****************SECCION PARA SELECCIONAR Y MOSTRAR GALERIA DE IMAGENES-->
@@ -87,7 +97,7 @@
             <br>
             <br>
             
-              <span>Imagen(es) Actual(es): </span>
+              <span>Imagen(es) Actual(es) de la galeria: </span>
               <br>
 
               <!-- Mensaje: Imagen Eliminada Satisfactoriamente ! -->
