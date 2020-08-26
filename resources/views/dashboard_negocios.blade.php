@@ -82,7 +82,7 @@
             </div>
             <div class="col-sm-9">
               @if (empty($users->imagen_portada)==false)
-               <img src="../../../img/logoNegocio/{{ $users->imagen_portada }}" width="200" class="img-fluid"> 
+               <img src="../../../img/portadaNegocio/{{ $users->imagen_portada }}" width="200" class="img-fluid"> 
               @endif
             </div>
           </div>
