@@ -42,7 +42,7 @@
                         @csrf @method('PATCH')
                         <div class="form-group">
                             <label for="imagen">Imagen</label>
-                            <input type="file" class="form-control-file" id="imagen" name="imagen" required>
+                            <input type="file" class="form-control-file" id="imagen" name="imagen">
                         </div>
 
                         <div style="margin-bottom: 25px" class="form-group">

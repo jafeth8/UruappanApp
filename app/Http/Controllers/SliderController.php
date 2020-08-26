@@ -45,19 +45,31 @@ class SliderController extends Controller
             $file= $request->imagen;
             $file->move(public_path() . '/img/slider', $file->getClientOriginalName());
 
+            $slider->update([
+                'titulo'=>$request->get('titulo'),
+                'descripcion'=>$request->get('descripcion'),
+                'url_image'=>$file->getClientOriginalName(),
+                'texto_boton'=>$request->get('texto_boton'),
+                'url_boton'=>$request->get('url_boton'),
+                'estilo_boton'=>$request->get('estilo'),
+                //'estado'=>$request->get('estado'),
+                'orden'=>$request->get('orden')  
+             ]);
+
+        }else{
+            $slider->update([
+                'titulo'=>$request->get('titulo'),
+                'descripcion'=>$request->get('descripcion'),
+                'texto_boton'=>$request->get('texto_boton'),
+                'url_boton'=>$request->get('url_boton'),
+                'estilo_boton'=>$request->get('estilo'),
+                //'estado'=>$request->get('estado'),
+                'orden'=>$request->get('orden')  
+             ]);
         }
         //$imagen=$file->getClientOriginalName();
         $noticia=$request->get('titulo');
-         $slider->update([
-           'titulo'=>$request->get('titulo'),
-           'descripcion'=>$request->get('descripcion'),
-           'url_image'=>$file->getClientOriginalName(),
-           'texto_boton'=>$request->get('texto_boton'),
-           'url_boton'=>$request->get('url_boton'),
-           'estilo_boton'=>$request->get('estilo'),
-           //'estado'=>$request->get('estado'),
-           'orden'=>$request->get('orden')  
-        ]);
+      
         
         return redirect()->route('home')->with("updated_slider","$noticia se ha actualizado ");
     }
