@@ -78,7 +78,7 @@
           </div>
           <!--*****************SECCION PARA SELECCIONAR Y MOSTRAR GALERIA DE IMAGENES-->
           <div class="form-group">
-            <label for="img" class="negrita col-sm-3 control-label">Selecciona una imagen:</label>                         
+            <label for="img" class="negrita col-sm-3 control-label">Selecciona las imagenes para la galeria:</label>                         
             <div class="col-sm-9">
               <input name="img[]" type="file" id="img" multiple="multiple">
             </div>
@@ -86,8 +86,7 @@
             
             <br>
             <br>
-            @if ( !empty ( $users->imagenes_galeria) )
-
+            
               <span>Imagen(es) Actual(es): </span>
               <br>
 
@@ -99,22 +98,18 @@
               @endif
 
               <!-- Mostramos todas las imágenes pertenecientesa a este registro -->
-              @foreach($imagenes_galeria as $img)                    
+              @forelse($imagenes_galeria as $img)                    
                   
                   <img src="../../../img/galeria/{{ $img->nombre }}" width="200" class="img-fluid"> 
 
                   <!-- Botón para Eliminar la Imagen individualmente -->
                   <a href="{{ route('eliminarImagenGaleria', [$img->id, $users->id]) }}" class="btn btn-danger btn-sm" onclick="return confirmarEliminar();">Eliminar</a> 
-
-              @endforeach
-
-              
-
-            @else
-
-              Aún no se ha cargado una imagen para este producto
-
-            @endif                
+              @empty
+                
+                <div class="alert alert-warning" role="alert">
+                 <strong>Aviso!</strong> Aun no se han cargado (imagenes) para la galeria de este negocio
+                </div>  
+              @endforelse
             </div>
 
           </div>
