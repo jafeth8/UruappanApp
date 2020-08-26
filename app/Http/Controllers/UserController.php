@@ -90,8 +90,6 @@ class UserController extends Controller
             'telefono'=>request('telefono'),
             'categoria'=>request('categoria'),
             'facebook_url'=>request('facebook_url'),
-            
-            'imagenes_galeria' => date('dmyHi'),
         ]);
  
         /*888888888888888888888888888888888888888888888888888888888888*/
