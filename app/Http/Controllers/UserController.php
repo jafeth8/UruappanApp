@@ -103,7 +103,7 @@ class UserController extends Controller
 
             ]);        
             
-            // Recibimos una o varias imĂˇgenes y las guardamos en la carpeta 'uploads'
+            // Recibimos una o varias imĂˇgenes y las guardamos en la carpeta 'galeria'
             
             foreach($request->file('img') as $image)
                 {
@@ -112,7 +112,7 @@ class UserController extends Controller
                     $formato = $image->getClientOriginalExtension();
                     $image->move(public_path().'/img/galeria', $imagen);
                     
-                    // Guardamos el nombre de la imagen en la tabla 'img_bicicletas'
+                    // Guardamos el nombre de la imagen en la tabla 'img_users'
                     Img_user::create(
                         [
                             'nombre' => $imagen, 

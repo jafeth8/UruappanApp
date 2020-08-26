@@ -27,7 +27,7 @@ class SliderController extends Controller
            'texto_boton'=>$request->get('texto_boton'),
            'url_boton'=>$request->get('url_boton'),
            'estilo_boton'=>$request->get('estilo'),
-           'estado'=>$request->get('estado'),
+           //'estado'=>$request->get('estado'),
            'orden'=>$request->get('orden')  
         ]);
 
@@ -55,10 +55,35 @@ class SliderController extends Controller
            'texto_boton'=>$request->get('texto_boton'),
            'url_boton'=>$request->get('url_boton'),
            'estilo_boton'=>$request->get('estilo'),
-           'estado'=>$request->get('estado'),
+           //'estado'=>$request->get('estado'),
            'orden'=>$request->get('orden')  
         ]);
         
         return redirect()->route('home')->with("updated_slider","$noticia se ha actualizado ");
+    }
+
+    public function deleteSlider($id){
+                //$bi = $bid;
+
+        // Elimino la imagen de la carpeta 'galeria'
+        $imagen = Slider::select('url_image')->where('id', '=', $id)->get();
+        $imgfrm = $imagen->implode('url_image', ', ');
+        //dd($imgfrm);
+        //Storage::delete($imgfrm);
+        
+        $image_path = public_path()."/img/slider/$imgfrm";
+        if (@getimagesize($image_path)) {
+              unlink($image_path);
+            }
+        
+
+        Slider::destroy($id);
+
+        // Redireccionamos con mensaje 
+        
+        //return Redirect::to('admin/bicicletas/actualizar/'.$bi.'');
+        return redirect()->route('home')->with("delete_slider"," la noticia se ha eliminado ");
+        return $id;
+
     }
 }

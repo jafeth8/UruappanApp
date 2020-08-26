@@ -21,7 +21,7 @@ class CreateSlidersTable extends Migration
             $table->string('texto_boton',60);
             $table->text('url_boton');
             $table->string('estilo_boton',30);
-            $table->tinyInteger('estado');
+            //$table->tinyInteger('estado'); // no descomentar!! (probablemente se use en un futuro)
             $table->tinyInteger('orden');
             $table->timestamps();
         });

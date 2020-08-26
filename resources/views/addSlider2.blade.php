@@ -63,7 +63,7 @@
                     </div>
                     
                     
-                    <div class="form-group">
+                   <!-- <div class="form-group">
                       <label for="estado" class="col-sm-1 control-label">Estado</label>
                       <div class="col-sm-10">
                         <select class="form-control" id="estado" required name="estado">
@@ -71,7 +71,7 @@
                           <option value="1" >Mostrar en pagina principal</option>
                        </select>
                       </div>
-                    </div>
+                    </div>-->
                    
                     
                     

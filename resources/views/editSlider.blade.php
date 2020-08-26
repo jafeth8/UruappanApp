@@ -83,13 +83,13 @@
                         </div>
                             
                               
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <label for="estado" >Estado</label>
                             <select class="form-control" id="estado" required name="estado">
                             <option value="0" {{ $slider->estado==0 ? "selected" : "" }}>Guardar en la lista</option>
                             <option value="1" {{ $slider->estado==1 ? "selected" : "" }}>Mostrar en pagina principal</option>
                             </select>
-                        </div>
+                        </div>-->
                          
                         
                         <div style="margin-top:10px" class="form-group">

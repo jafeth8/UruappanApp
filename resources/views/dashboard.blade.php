@@ -34,6 +34,12 @@
             </div>
 
           @endif
+          @if(Session::has('delete_slider'))
+            <div class="alert alert-success alert-dismissible fade in" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <strong>Aviso!</strong> {{ Session::get('delete_slider') }}
+            </div>
+          @endif
             <div class="row">
               @forelse ($sliders as $slider)
                 
@@ -44,7 +50,7 @@
                       <h3>{{ $slider->titulo }}</h3>
                       <p><?{{ $slider->descripcion }}?></p>
                       
-                      <p class='text-right'><a href="{{ route('sliderEdit' , $slider) }}" class="btn btn-info" role="button"><i class='glyphicon glyphicon-edit'></i> Editar</a> <button type="button" class="btn btn-danger" onclick='eliminar_slide("{{ $slider->id }}");' role="button"><i class='glyphicon glyphicon-trash'></i> Eliminar</button></p>
+                      <p class='text-right'><a href="{{ route('sliderEdit' , $slider) }}" class="btn btn-info" role="button"><i class='glyphicon glyphicon-edit'></i> Editar</a> <a href="{{ route('sliderDelete',$slider->id) }}" class="btn btn-danger" onclick="return confirmarEliminar();"><i class='glyphicon glyphicon-trash'></i> Eliminar</a> </p>
                       </div>
                     </div>
                     </div>
@@ -67,33 +73,18 @@
       md.initDashboardPageCharts();
     });
   </script>
-  <!-- ********Scripts para cargar sliders*******-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-  <script>
-    $(document).ready(function(){
-      load(1);
-    });
 
-    function eliminar_slide(id){
-      page=1;
-      var parametros = {"action":"ajax","page":page,"id":id};
-      if(confirm('Esta acción  eliminará de forma permanente el slide \n\n Desea continuar?')){
-      $.ajax({
-        url:'./ajax/slider_ajax.php',
-        data: parametros,
-         beforeSend: function(objeto){
-        $("#loader").html("<img src='./img/ajax-loader.gif'>");
-        },
-        success:function(data){
-          $(".outer_div").html(data).fadeIn('slow');
-          $("#loader").html("");
-        }
-      })
+  <script type="text/javascript">
+
+    function confirmarEliminar()
+    {
+    var x = confirm("Eliminar esta imagen ?");
+    if (x)
+      return true;
+    else
+      return false;
     }
-    }
+
   </script>
-  <!-- *******FIN de Scripts para cargar sliders*******-->
 @endpush

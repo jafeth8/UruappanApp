@@ -67,6 +67,7 @@ Route::get('/agregarSlider','SliderController@show')->name('agregarSlider')->mid
 Route::post('/crearSlider','SliderController@create')->name('crearSlider')->middleware('auth','role:admin');
 Route::get('/editarSlider{slider}','SliderController@showEdit')->name('sliderEdit')->middleware('auth','role:admin');
 Route::patch('/updateSlider{slider}','SliderController@editSlider')->name('sliderUpdate')->middleware('auth','role:admin');
+Route::get('eliminarSlider/{id}', 'SliderController@deleteSlider')->name('sliderDelete')->middleware('auth','role:admin');
 Route::get('/usuarios','HomeController@showUsers')->name('mostrarUsuarios')->middleware('auth','role:admin');
 Route::get('dataTableUSer', 'UserController@dataTable')->name('dataTableUser');
 Route::delete('aliminarUser/{id}', 'UserController@destroy')->name('eliminarUsuario');
