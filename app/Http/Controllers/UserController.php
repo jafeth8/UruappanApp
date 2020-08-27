@@ -213,4 +213,21 @@ class UserController extends Controller
         return redirect()->route('mostrarUsuarios')->with('userDestroy','Negocio Eliminado correctamente!');
         //return $id;
     }
+
+    public function showAprobar($id){
+        $users = User::find($id);
+        return view('aprobarUser',['users'=>$users]);
+        //return $id;
+    }
+
+    public function aprobarUser($id){
+        $users = User::find($id);
+        $name=$users->name;
+        
+        $users->update([
+            'estado'=>request('estado')
+        ]);
+        
+        return redirect()->route('mostrarUsuarios')->with("estadoUser","el estado del negocio: $name ha sido actualizado correctamente");
+    }
 }

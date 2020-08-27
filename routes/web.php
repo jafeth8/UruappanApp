@@ -71,6 +71,10 @@ Route::get('eliminarSlider/{id}', 'SliderController@deleteSlider')->name('slider
 Route::get('/usuarios','HomeController@showUsers')->name('mostrarUsuarios')->middleware('auth','role:admin');
 Route::get('dataTableUSer', 'UserController@dataTable')->name('dataTableUser');
 Route::delete('aliminarUser/{id}', 'UserController@destroy')->name('eliminarUsuario');
+
+Route::get('/aprobarUsuario{id}','UserController@showAprobar')->name('aprobarUsuario')->middleware('auth','role:admin');
+Route::patch('/aprobarUser{id}','UserController@aprobarUser')->name('ActualizarAprobacionUser')->middleware('auth','role:admin');
+
 //----------------------------------------------------------------------------------------
 Route::get('/home_negocios', 'HomeController@indexNegocios')->name('homeNegocios')->middleware('auth');
 Route::get('/usuarios/{users}/editar','UserController@edit')->name('Editar_Usuarios');
