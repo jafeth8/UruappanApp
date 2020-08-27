@@ -128,7 +128,7 @@
       </div>
      
     </div>
-    <div class="container-fluid ">
+    <div class="container-fluid informacion3 ">
       <div class="row justify-content-center align-items-center informacion3">
         <div class="col-6">
           <h1 class="h1_informacion">Registrate facil</h1>
