@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/','IndexController@index');
+Route::get('/','IndexController@index')->name('main');
 
 Route::get('/logingeneral', function () {
 	return view('welcome');
@@ -26,7 +26,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
-Route::group(['middleware' => ['auth','role:admin']], function () {
+/*Route::group(['middleware' => ['auth','role:admin']], function () {
 	Route::get('table-list', function () {
 		return view('pages.table_list');
 	})->name('table');
@@ -54,14 +54,14 @@ Route::group(['middleware' => ['auth','role:admin']], function () {
 	Route::get('upgrade', function () {
 		return view('pages.upgrade');
 	})->name('upgrade');
-});
+});*/
 
-Route::group(['middleware' => 'auth'], function () {
+/*Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
-});
+});*/
 
 Route::get('/agregarSlider','SliderController@show')->name('agregarSlider')->middleware('auth','role:admin');
 Route::post('/crearSlider','SliderController@create')->name('crearSlider')->middleware('auth','role:admin');
@@ -70,7 +70,7 @@ Route::patch('/updateSlider{slider}','SliderController@editSlider')->name('slide
 Route::get('eliminarSlider/{id}', 'SliderController@deleteSlider')->name('sliderDelete')->middleware('auth','role:admin');
 Route::get('/usuarios','HomeController@showUsers')->name('mostrarUsuarios')->middleware('auth','role:admin');
 Route::get('dataTableUSer', 'UserController@dataTable')->name('dataTableUser');
-Route::delete('aliminarUser/{id}', 'UserController@destroy')->name('eliminarUsuario');
+Route::delete('aliminarUser/{id}', 'UserController@destroy')->name('eliminarUsuario')->middleware('auth','role:admin');
 
 Route::get('/aprobarUsuario{id}','UserController@showAprobar')->name('aprobarUsuario')->middleware('auth','role:admin');
 Route::patch('/aprobarUser{id}','UserController@aprobarUser')->name('ActualizarAprobacionUser')->middleware('auth','role:admin');
@@ -81,7 +81,9 @@ Route::get('/mostrarDetallesUser{id}','UserController@showDetallesUser')->name('
 Route::get('/home_negocios', 'HomeController@indexNegocios')->name('homeNegocios')->middleware('auth');
 Route::get('/usuarios/{users}/editar','UserController@edit')->name('Editar_Usuarios');
 
-Route::get('/loginAdmin', 'Auth\LoginController@showLoginForm2')->name('loginAdmin');
+//Route::get('/loginAdmin', 'Auth\LoginController@showLoginForm2')->name('loginAdmin');
+
+Route::get('/redirectAuth', 'HomeController@redireccionar')->name('authRedirect');
 
 Route::put('/updateUsersData{users}','UserController@update')->name('updateUsersData')->middleware('auth');
 

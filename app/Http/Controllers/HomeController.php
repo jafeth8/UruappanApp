@@ -41,4 +41,12 @@ class HomeController extends Controller
         $emails = $user->sortBy('email')->pluck('email')->unique();
         return view('usuarios',compact('names', 'emails'));
     }
+
+    public function redireccionar(){
+        if (auth()->user()->role=='admin') {
+            return redirect()->route('home');
+        }
+
+        return redirect()->route('homeNegocios');
+    }
 }
