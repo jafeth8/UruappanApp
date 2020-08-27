@@ -44,6 +44,7 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">E-mail</th>
                 <th scope="col">Fecha</th>
+                <th scope="col">Estado</th>
                 <th scope="col">&nbsp;</th>
                 {{-- <th scope="col">Editar</th>
                 <th scope="col">Eliminar</th> --}}
@@ -133,6 +134,7 @@
         {data: 'name'},
         {data: 'email'},
         {data: 'created_at'},
+        {data: 'btnEstado'},
         {data: 'btn' },
         // {data: 'edit'},
         // {data: 'delete'}

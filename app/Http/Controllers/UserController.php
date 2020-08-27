@@ -42,7 +42,7 @@ class UserController extends Controller
 
     public function dataTable()
     {
-        return DataTables::of(User::select('id', 'name', 'email', 'created_at')->where('role','customer'))
+        return DataTables::of(User::select('id', 'name', 'email','estado','created_at')->where('role','customer'))//aqui obtenemos los usurios que son clientes(customer)
         ->editColumn('created_at', function(User $user){
             return $user->created_at->diffForHumans();
         })
@@ -58,8 +58,9 @@ class UserController extends Controller
         // ->addColumn('show', 'user.dataTable.show')
         // ->addColumn('edit', 'user.dataTable.edit')
         // ->addColumn('delete', 'user.dataTable.delete')
+        ->addColumn('btnEstado', 'users.dataTable.estado')
         ->addColumn('btn', 'users.dataTable.btn')
-        ->rawColumns(['btn'])
+        ->rawColumns(['btn','btnEstado'])
         ->toJson();
     }
 
