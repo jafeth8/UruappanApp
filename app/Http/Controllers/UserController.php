@@ -231,4 +231,11 @@ class UserController extends Controller
         
         return redirect()->route('mostrarUsuarios')->with("estadoUser","el estado del negocio: $name ha sido actualizado correctamente");
     }
+
+    public function showDetallesUser($id){
+        $users = User::find($id);
+        //seleccionamos las imagenes por su id
+        $imagenes = User::find($id)->imagenesUsers;
+        return view('detallesUser',['users'=>$users,'imagenes'=>$imagenes]);
+    }
 }

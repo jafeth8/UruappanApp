@@ -75,6 +75,8 @@ Route::delete('aliminarUser/{id}', 'UserController@destroy')->name('eliminarUsua
 Route::get('/aprobarUsuario{id}','UserController@showAprobar')->name('aprobarUsuario')->middleware('auth','role:admin');
 Route::patch('/aprobarUser{id}','UserController@aprobarUser')->name('ActualizarAprobacionUser')->middleware('auth','role:admin');
 
+Route::get('/mostrarDetallesUser{id}','UserController@showDetallesUser')->name('detallesUser')->middleware('auth','role:admin');
+
 //----------------------------------------------------------------------------------------
 Route::get('/home_negocios', 'HomeController@indexNegocios')->name('homeNegocios')->middleware('auth');
 Route::get('/usuarios/{users}/editar','UserController@edit')->name('Editar_Usuarios');
