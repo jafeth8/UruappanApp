@@ -35,27 +35,43 @@
             <label for="categoria" class="col-sm-3 control-label">Categoria</label>
             <div class="col-sm-9">
                 <select id="categoria" class="form-control select2" name="categoria">
-                    <option value="Abarrotes"{{ $users->categoria=="Abarrotes" ? "selected" : "" }}>Abarrotes</option>
-                    <option value="Artesanos"{{ $users->categoria=="Artesanos" ? "selected" : "" }}>Artesanos</option>
-                    <option value="Automotriz"{{ $users->categoria=="Automotriz" ? "selected" : "" }}>Automotriz</option>
-                    <option value="Boutique"{{ $users->categoria=="Boutique" ? "selected" : "" }}>Boutique</option>
-                    <option value="Bares"{{ $users->categoria=="Bares" ? "selected" : "" }}>Bares</option>
-                    <option value="Cafeterias"{{ $users->categoria=="Cafeterias" ? "selected" : "" }}>Cafeterías</option>
-                    <option value="Carnicerias"{{ $users->categoria=="Carnicerias" ? "selected" : "" }}>Carnicerías</option>
-                    <option value="Comidas"{{ $users->categoria=="Comidas" ? "selected" : "" }}>Comidas</option>
-                    <option value="Construccion"{{ $users->categoria=="Construccion" ? "selected" : "" }}>Construcción</option>
-                    <option value="Deportes"{{ $users->categoria=="Deportes" ? "selected" : "" }}>Deportes</option>
-                    <option value="Emergencias"{{ $users->categoria=="Emergencias" ? "selected" : "" }}>Emergencias</option>
-                    <option value="Florerias"{{ $users->categoria=="Florerias" ? "selected" : "" }}>Florerías</option>
-                    <option value="Hospedaje"{{ $users->categoria=="Hospedaje" ? "selected" : "" }}>Hospedaje</option>
-                    <option value="Paleterias"{{ $users->categoria=="Paleterias" ? "selected" : "" }}>Paleterías</option>
-                    <option value="Panaderias"{{ $users->categoria=="Panaderias" ? "selected" : "" }}>Panaderías</option>
-                    <option value="Pizzerias"{{ $users->categoria=="Pizzerias" ? "selected" : "" }}>Pizzerías</option>
-                    <option value="Resposterias"{{ $users->categoria=="Resposterias" ? "selected" : "" }}>Reposterías</option>
-                    <option value="Transporte"{{ $users->categoria=="Transporte" ? "selected" : "" }}>Transporte</option>
-                    <option value="Salud"{{ $users->categoria=="Salud" ? "selected" : "" }}>Salud</option>
-                    <option value="Servicios"{{ $users->categoria=="Servicios" ? "selected" : "" }}>Servicios</option>
-                    <option value="Vinaterias"{{ $users->categoria=="Vinaterias" ? "selected" : "" }}>Vinaterías</option>
+                    <option value="AGUACATERAS"{{ $users->categoria=="AGUACATERAS" ? "selected" : "" }}>Aguacateras</option>
+                    <option value="ABARROTES"{{ $users->categoria=="ABARROTES" ? "selected" : "" }}>Abarrotes</option>
+                    <option value="ARTESANOS"{{ $users->categoria=="ARTESANOS" ? "selected" : "" }}>Artesanos</option>
+                    <option value="ARQUITECTOS"{{ $users->categoria=="ARQUITECTOS" ? "selected" : "" }}>Arquitectos</option>
+                    <option value="AUTOMOTRIZ"{{ $users->categoria=="AUTOMOTRIZ" ? "selected" : "" }}>Automotriz</option>
+                    <option value="BOUTIQUE"{{ $users->categoria=="BOUTIQUE" ? "selected" : "" }}>Boutique</option>
+                    <option value="BELLEZA"{{ $users->categoria=="BELLEZA" ? "selected" : "" }}>Belleza</option>
+                    <option value="BARES"{{ $users->categoria=="BARES" ? "selected" : "" }}>Bares</option>
+                    <option value="CAFETERIAS"{{ $users->categoria=="CAFETERIAS" ? "selected" : "" }}>Cafeterías</option>
+                    <option value="CENTRO BOTANERO"{{ $users->categoria=="CENTRO BOTANERO" ? "selected" : "" }}>Centro botanero</option>
+                    <option value="CARNICERIAS"{{ $users->categoria=="CARNICERIAS" ? "selected" : "" }}>Carnicerías</option>
+                    <option value="COMIDAS"{{ $users->categoria=="COMIDAS" ? "selected" : "" }}>Comidas</option>
+                    <option value="CONSTRUCCION"{{ $users->categoria=="CONSTRUCCION" ? "selected" : "" }}>Construcción</option>
+                    <option value="DEPORTES"{{ $users->categoria=="DEPORTES" ? "selected" : "" }}>Deportes</option>
+                    <option value="DISEÑOS"{{ $users->categoria=="DISEÑOS" ? "selected" : "" }}>Diseños</option>
+                    <option value="DESPACHOS"{{ $users->categoria=="DESPACHOS" ? "selected" : "" }}>Despachos</option>
+                    <option value="EDUCACION"{{ $users->categoria=="EDUCACION" ? "selected" : "" }}>Educación</option>
+                    <option value="EMERGENCIAS"{{ $users->categoria=="EMERGENCIAS" ? "selected" : "" }}>Emergencias</option>
+                    <option value="FLORERIAS"{{ $users->categoria=="FLORERIAS" ? "selected" : "" }}>Florerías</option>
+                    <option value="FUNERARIAS"{{ $users->categoria=="FUNERARIAS" ? "selected" : "" }}>Funerarias</option>
+                    <option value="HOSPEDAJE"{{ $users->categoria=="HOSPEDAJE" ? "selected" : "" }}>Hospedaje</option>
+                    <option value="HIGIENE"{{ $users->categoria=="HIGIENE" ? "selected" : "" }}>Higiene</option>
+                    <option value="LIMPIEZA"{{ $users->categoria=="LIMPIEZA" ? "selected" : "" }}>Limpieza</option>
+                    <option value="PALETERIAS"{{ $users->categoria=="PALETERIAS" ? "selected" : "" }}>Paleterías</option>
+                    <option value="PAPELERIAS"{{ $users->categoria=="PAPELERIAS" ? "selected" : "" }}>Papelerias</option>
+                    <option value="PANADERIAS"{{ $users->categoria=="PANADERIAS" ? "selected" : "" }}>Panaderías</option>
+                    <option value="PIZZERIAS"{{ $users->categoria=="PIZZERIAS" ? "selected" : "" }}>Pizzerías</option>
+                    <option value="REPARACIONES"{{ $users->categoria=="REPARACIONES" ? "selected" : "" }}>Reparaciones</option>
+                    <option value="REPOSTERIAS"{{ $users->categoria=="REPOSTERIAS" ? "selected" : "" }}>Reposterías</option>
+                    <option value="ROPA"{{ $users->categoria=="ROPA" ? "selected" : "" }}>Ropa</option>
+                    <option value="SONIDO"{{ $users->categoria=="SONIDO" ? "selected" : "" }}>Sonido</option>
+                    <option value="SALUD"{{ $users->categoria=="SALUD" ? "selected" : "" }}>Salud</option>
+                    <option value="TRANSPORTE"{{ $users->categoria=="TRANSPORTE" ? "selected" : "" }}>Transporte</option>
+                    <option value="SERVICIOS"{{ $users->categoria=="SERVICIOS" ? "selected" : "" }}>Servicios</option>
+                    <option value="VINATERIAS"{{ $users->categoria=="VINATERIAS" ? "selected" : "" }}>Vinaterías</option>
+                    <option value="VETERINARIAS"{{ $users->categoria=="VETERINARIAS" ? "selected" : "" }}>Veterinarias</option>
+                    <option value="ZAPATERIAS"{{ $users->categoria=="ZAPATERIAS" ? "selected" : "" }}>Zapaterias</option>
                     
                 </select>
             </div>
