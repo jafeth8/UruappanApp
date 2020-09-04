@@ -18,10 +18,18 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+    $dirLogo="public/img/logoNegocio";
+    $dirPortada="public/img/portadaNegocio";
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
+        'descripcion'=>$faker->text(250),
+        'ubicacion'=>$faker->address,
+        'telefono'=>$faker->phoneNumber,
+        'facebook_url'=>$faker->url,
+        'logo'=>$faker->image($dirLogo,800,600,'technics',false,false),
+        'imagen_portada'=>$faker->image($dirPortada,900,500,'abstract',false,false),
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         'remember_token' => Str::random(10),
     ];

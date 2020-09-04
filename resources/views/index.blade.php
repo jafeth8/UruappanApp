@@ -115,11 +115,11 @@
               <h1 class="h2_informacion" >!Disponible en!</h1>
           <div class="row">
             <div class="col-6">
-              <a href="#"><img src="img/Appstore.png" class="img-fluid" style="height: 50px;" alt="appstore" ></a>
+              <a href="https://apps.apple.com/mx/app/uruappan/id1493860261" target="_blank"><img src="img/Appstore.png" class="img-fluid" style="height: 50px;" alt="appstore" ></a>
               
             </div>
             <div class="col-6">
-              <a href="#"><img src="img/Playstore.png" class="img-fluid" style="height: 50px;" alt="playstore"></a>
+              <a href="https://play.google.com/store/apps/details?id=com.Uruappan.paracho" target="_blank"><img src="img/Playstore.png" class="img-fluid" style="height: 50px;" alt="playstore"></a>
               
             </div>
           </div>    
@@ -152,22 +152,30 @@
   <div id="clientes" class="clientes">
     <h1 class="h1Clientes">Nuestros clientes</h1>
     <section class="customer-logos">
-      <div class="slide"><img src="https://image.freepik.com/free-vector/luxury-letter-e-logo-design_1017-8903.jpg" class="img-clientes"> <br><p class="textoClientes" style="text-align: center;">empresa1</p>
-      </div>
-      <div class="slide"><img src="https://image.freepik.com/free-vector/3d-box-logo_1103-876.jpg" class="img-clientes"> <br><p class="textoClientes" style="text-align: center;">empresa1</p>
-      </div>
-      <div class="slide"><img src="https://image.freepik.com/free-vector/blue-tech-logo_1103-822.jpg" class="img-clientes"> <br><p class="textoClientes" style="text-align: center;">empresa1</p>
-      </div>
-      <div class="slide"><img src="https://image.freepik.com/free-vector/colors-curl-logo-template_23-2147536125.jpg" class="img-clientes"> <br><p class="textoClientes" style="text-align: center;">empresa1</p>
-      </div>
-      <div class="slide"><img src="https://image.freepik.com/free-vector/abstract-cross-logo_23-2147536124.jpg" class="img-clientes"> <br><p class="textoClientes" style="text-align: center;">empresa1</p>
-      </div>
-      <div class="slide"><img src="https://image.freepik.com/free-vector/football-logo-background_1195-244.jpg" class="img-clientes"> <br><p class="textoClientes" style="text-align: center;">empresa1</p>
-      </div>
-      <div class="slide"><img src="https://image.freepik.com/free-vector/background-of-spots-halftone_1035-3847.jpg" class="img-clientes"> <br><p class="textoClientes" style="text-align: center;">empresa1</p>
-      </div>
-      <div class="slide"><img src="https://image.freepik.com/free-vector/retro-label-on-rustic-background_82147503374.jpg" class="img-clientes"> <br><p class="textoClientes" style="text-align: center;">empresa1</p>
-      </div>
+      @if (count($users)>=8)
+         @foreach ($users as $user)
+         <div class="slide"><a href="{{ $user->facebook_url }}" target="_blank" rel="noopener noreferrer"><img src="{{ asset("img/logoNegocio/$user->logo") }}" class="img-clientes"></a> <br><p class="textoClientes" style="text-align: center;">{{ $user->name }}</p>
+         </div>
+         @endforeach
+      @else
+        <div class="slide"><img src="https://image.freepik.com/free-vector/luxury-letter-e-logo-design_1017-8903.jpg" class="img-clientes"> <br><p class="textoClientes" style="text-align: center;">empresa1</p>
+        </div>
+        <div class="slide"><img src="https://image.freepik.com/free-vector/3d-box-logo_1103-876.jpg" class="img-clientes"> <br><p class="textoClientes" style="text-align: center;">empresa1</p>
+        </div>
+        <div class="slide"><img src="https://image.freepik.com/free-vector/blue-tech-logo_1103-822.jpg" class="img-clientes"> <br><p class="textoClientes" style="text-align: center;">empresa1</p>
+        </div>
+        <div class="slide"><img src="https://image.freepik.com/free-vector/colors-curl-logo-template_23-2147536125.jpg" class="img-clientes"> <br><p class="textoClientes" style="text-align: center;">empresa1</p>
+        </div>
+        <div class="slide"><img src="https://image.freepik.com/free-vector/abstract-cross-logo_23-2147536124.jpg" class="img-clientes"> <br><p class="textoClientes" style="text-align: center;">empresa1</p>
+        </div>
+        <div class="slide"><img src="https://image.freepik.com/free-vector/football-logo-background_1195-244.jpg" class="img-clientes"> <br><p class="textoClientes" style="text-align: center;">empresa1</p>
+        </div>
+        <div class="slide"><img src="https://image.freepik.com/free-vector/background-of-spots-halftone_1035-3847.jpg" class="img-clientes"> <br><p class="textoClientes" style="text-align: center;">empresa1</p>
+        </div>
+        <div class="slide"><img src="https://image.freepik.com/free-vector/retro-label-on-rustic-background_82147503374.jpg" class="img-clientes"> <br><p class="textoClientes" style="text-align: center;">empresa1</p>
+        </div>
+      @endif
+      
     </section>
   </div>
 
