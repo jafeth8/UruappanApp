@@ -66,8 +66,23 @@ class UserController extends Controller
 
 
     public function update(User $users,Request $request){
+
+        $request->validate([
+            'nombreNegocio'=>'required',
+            'descripcion'=>'required',
+            'categoria'=>'required',
+            'ubicacion'=>'required',
+            'telefono'=>'required',
+            'logo'=>'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+            'imagen_portada'=>'image|mimes:jpeg,png,jpg,gif,svg|max:5048'
+        ]);
+
         
 
+
+        
+        
+        
         if($request->hasFile('logo')){
             $file= $request->logo;
             $file->move(public_path() . '/img/logoNegocio', $file->getClientOriginalName());

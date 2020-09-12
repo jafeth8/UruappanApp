@@ -5,6 +5,18 @@
 @section('content')
 <div class="row" style="margin-top: 1vh;">
     <div class="col-md-12">
+
+      @foreach ($errors->all() as $error)
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <ul>
+            <li>{{ $error }}</li>
+          </ul>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @endforeach
+
       @if(Session::has('mensaje'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           <strong>OK! </strong> {{ Session::get('mensaje') }}
@@ -81,17 +93,17 @@
          <div class="form-group">
            <label for="ubicacion" class="col-sm-3 control-label">Ubicacion</label>
            <div class="col-sm-9">
-             <input type="text" class="form-control" id="ubicacion" name="ubicacion" value="{{ $users->ubicacion }}">
+             <input type="text" class="form-control" id="ubicacion" required name="ubicacion" value="{{ $users->ubicacion }}">
            </div>
          </div>
          <div class="form-group">
            <label for="telefono" class="col-sm-3 control-label">Telefono</label>
            <div class="col-sm-9">
-             <input type="text" class="form-control" id="telefono" name="telefono" value="{{ $users->telefono }}">
+             <input type="text" class="form-control" id="telefono"  required name="telefono" value="{{ $users->telefono }}">
            </div>
          </div>
          <div class="form-group">
-          <label for="telefono" class="col-sm-3 control-label">link de facebook</label>
+          <label for="telefono" class="col-sm-3 control-label">link de facebook (opcional)</label>
           <div class="col-sm-9">
             <input type="text" class="form-control" id="telefono" name="facebook_url" value="{{ $users->facebook_url }}">
           </div>
